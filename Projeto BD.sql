@@ -25,8 +25,8 @@ DROP TABLE IF EXISTS `aluno`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `aluno` (
-  `matricula` int(8) unsigned zerofill NOT NULL,
-  PRIMARY KEY (`matricula`)
+  `id_aluno` int NOT NULL,
+  PRIMARY KEY (`id_aluno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -36,7 +36,7 @@ CREATE TABLE `aluno` (
 
 LOCK TABLES `aluno` WRITE;
 /*!40000 ALTER TABLE `aluno` DISABLE KEYS */;
-INSERT INTO `aluno` VALUES (00000001),(00000002),(00000003),(00000004),(00000005),(00000006),(00000007),(00000008),(00000009),(00000010),(00000011),(00000012),(00000013),(00000014),(00000015),(00000016),(00000017),(00000018),(00000019),(00000020),(00000021),(00000022),(00000023),(00000024),(00000025),(00000026),(00000027),(00000028),(00000029),(00000030),(00000031),(00000032),(00000033),(00000034),(00000035),(00000036),(00000037),(00000038),(00000039),(00000040),(00000041),(00000042),(00000043),(00000044),(00000045),(00000046),(00000047),(00000048),(00000049),(00000050),(00000051),(00000052),(00000053),(00000054),(00000055),(00000056),(00000057),(00000058),(00000059),(00000060),(00000061);
+INSERT INTO `aluno` VALUES (1),(2),(3),(4),(5),(6),(7),(8),(9),(10),(11),(12),(13),(14),(15),(16),(17),(18),(19),(20),(21),(22),(23),(24),(25),(26),(27),(28),(29),(30),(31),(32),(33),(34),(35),(36),(37),(38),(39),(40),(41),(42),(43),(44),(45),(46),(47),(48),(49),(50);
 /*!40000 ALTER TABLE `aluno` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -73,13 +73,13 @@ DROP TABLE IF EXISTS `curso`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `curso` (
   `id_curso` int NOT NULL DEFAULT '0',
-  `nome` varchar(30) NOT NULL,
-  `descricao` text,
+  `nome` varchar(30) CHARACTER SET utf8mb3 NOT NULL,
+  `descricao` text CHARACTER SET utf8mb3,
   `carga` int unsigned DEFAULT NULL,
   `totaulas` int unsigned DEFAULT NULL,
   PRIMARY KEY (`id_curso`),
   UNIQUE KEY `nome` (`nome`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,6 +93,30 @@ INSERT INTO `curso` VALUES (1,'HTML','Curso de HTML',40,37),(2,'Algoritmos','Cur
 UNLOCK TABLES;
 
 --
+-- Table structure for table `formaçao`
+--
+
+DROP TABLE IF EXISTS `formaçao`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `formaçao` (
+  `id_formaçao` int NOT NULL,
+  `nome` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id_formaçao`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `formaçao`
+--
+
+LOCK TABLES `formaçao` WRITE;
+/*!40000 ALTER TABLE `formaçao` DISABLE KEYS */;
+INSERT INTO `formaçao` VALUES (1,'graduaçao'),(2,'mestrado'),(3,'doutorado');
+/*!40000 ALTER TABLE `formaçao` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `inscriçao`
 --
 
@@ -100,10 +124,10 @@ DROP TABLE IF EXISTS `inscriçao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `inscriçao` (
-  `id_inscricao` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
-  `data_inscricao` date NOT NULL,
+  `id_inscricao` int NOT NULL,
+  `data_inscricao` date DEFAULT NULL,
   PRIMARY KEY (`id_inscricao`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,6 +136,7 @@ CREATE TABLE `inscriçao` (
 
 LOCK TABLES `inscriçao` WRITE;
 /*!40000 ALTER TABLE `inscriçao` DISABLE KEYS */;
+INSERT INTO `inscriçao` VALUES (1,NULL),(2,NULL),(3,NULL),(4,NULL),(5,NULL),(6,NULL),(7,NULL),(8,NULL),(9,NULL),(10,NULL),(11,NULL),(12,NULL),(13,NULL),(14,NULL),(15,NULL),(16,NULL),(17,NULL),(18,NULL),(19,NULL),(20,NULL),(21,NULL),(22,NULL),(23,NULL),(24,NULL),(25,NULL),(26,NULL),(27,NULL),(28,NULL),(29,NULL),(30,NULL),(31,NULL),(32,NULL),(33,NULL),(34,NULL),(35,NULL),(36,NULL),(37,NULL),(38,NULL),(39,NULL),(40,NULL);
 /*!40000 ALTER TABLE `inscriçao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,7 +150,7 @@ DROP TABLE IF EXISTS `professor`;
 CREATE TABLE `professor` (
   `id_prof` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_prof`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -134,6 +159,7 @@ CREATE TABLE `professor` (
 
 LOCK TABLES `professor` WRITE;
 /*!40000 ALTER TABLE `professor` DISABLE KEYS */;
+INSERT INTO `professor` VALUES (0000000001),(0000000002),(0000000003),(0000000004),(0000000005),(0000000006),(0000000007),(0000000008),(0000000009),(0000000010),(0000000011);
 /*!40000 ALTER TABLE `professor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -145,12 +171,13 @@ DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuario` (
-  `login` varchar(30) NOT NULL,
-  `nome` varchar(45) NOT NULL,
-  `nascimento` date NOT NULL,
-  `senha` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`login`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `id` int NOT NULL,
+  `login` varchar(50) COLLATE latin1_bin NOT NULL,
+  `senha` varchar(20) COLLATE latin1_bin DEFAULT NULL,
+  `nome` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `nascimento` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -159,7 +186,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES ('1','Daniel Morais','1984-01-02',NULL),('10','Danilo Araujo','1975-12-10',NULL),('11','Andreia Delfino','1975-07-01',NULL),('12','Valter Vilmerson','1985-10-12',NULL),('13','Allan Silva','1993-11-11',NULL),('14','Rosana Kunz','1935-01-16',NULL),('15','Josiane Dutra','1950-01-20',NULL),('16','Elvis Schwarz','2011-05-07',NULL),('17','Paulo Narley','1997-03-17',NULL),('18','Joade Assis','1930-12-01',NULL),('19','Nara Matos','1978-03-17',NULL),('2','Talita Nascimento','1999-12-30',NULL),('20','Marcos Dissotti','2010-01-01',NULL),('21','Ana Carolina Mendes','2000-12-15',NULL),('22','Guilherme de Sousa','2001-05-18',NULL),('23','Bruno Torres','2000-01-30',NULL),('24','Yuji Homa','1996-12-25',NULL),('25','Raian Porto','1989-05-05',NULL),('26','Paulo Batista','1999-03-15',NULL),('27','Monique Precivalli','2013-12-30',NULL),('28','Herisson Silva','1965-10-10',NULL),('29','Tiago Ulisses','1993-04-22',NULL),('3','Emerson Gabriel','1920-12-30',NULL),('30','Anderson Rafael','1989-12-01',NULL),('31','Karine Ribeiro','1988-10-01',NULL),('32','Roberto Luiz Debarba','2007-01-09',NULL),('33','Jarismar Andrade','2000-06-23',NULL),('34','Janaina Oliveira','1955-03-12',NULL),('35','Márcio Mello','2011-11-20',NULL),('36','Robson Rodolpho','2000-08-08',NULL),('37','Daniele Moledo','2006-08-11',NULL),('38','Neto Sophiate','1996-05-17',NULL),('39','Neriton Dias','2009-10-30',NULL),('4','Lucas Damasceno','1930-11-02',NULL),('40','André Schmidt','1993-07-26',NULL),('41','Isaias Buscarino','2001-01-07',NULL),('42','Rafael Guimma','1968-04-11',NULL),('43','Ana Carolina Hernandes','1970-10-11',NULL),('44','Luiz Paulo','1984-11-01',NULL),('45','Bruna Teles','1980-11-07',NULL),('46','Diogo Padilha','2000-03-03',NULL),('47','Bruno Miltersteiner','1986-02-19',NULL),('48','Elaine Nunes','1998-08-15',NULL),('49','Silvio Ricardo','2012-03-12',NULL),('5','Leila Martins','1975-04-22',NULL),('50','Denilson Barbosa da Silva','2000-01-08',NULL),('51','Jucinei Teixeira','1977-11-22',NULL),('52','Bruna Santos','1991-12-01',NULL),('53','André Vitebo','1970-07-01',NULL),('54','Andre Santini','1991-08-15',NULL),('55','Ruan Valente','1998-03-19',NULL),('56','Nailton Mauricio','1992-04-25',NULL),('57','Rita Pontes','1999-09-02',NULL),('58','Carlos Camargo','2005-02-22',NULL),('59','Philppe Oliveira','2000-05-23',NULL),('6','Letícia Neves','1999-12-03',NULL),('60','Dayana Dias','1993-05-30',NULL),('61','Silvana Albuquerque','1999-05-22',NULL),('7','Janaína Couto','1987-11-12',NULL),('8','Carlisson Rosa','2010-08-01',NULL),('9','Jackson Telles','1999-01-23',NULL);
+INSERT INTO `usuario` VALUES (1,'__rrrblcqd@email.com','yxic0khekc','Janaína Couto','1987-11-12'),(2,'_wlyypnehb@email.com','rrobp3aod1','Karine Ribeiro','1988-10-01'),(3,'a_olhchefm@email.com','gn2aagiadi','Andre Santini','1991-08-15'),(4,'amwinfnsqy@email.com','r1ro_nki@3','André Schmidt','1993-07-26'),(5,'as_jaacwyj@email.com','oamo6mqcd7','Janaina Oliveira','1955-03-12'),(6,'ausrxjeart@email.com','m3zdgxlzwi','Philppe Oliveira','2000-05-23'),(7,'bdhgh__edf@email.com','hp8s9bqoo@','Raian Porto','1989-05-05'),(8,'bxpjwafdqf@email.com','kur53h8ilb','Elaine Nunes','1998-08-15'),(9,'cmsnjtrsfh@email.com','8utgqer4ey','Roberto Luiz Debarba','2007-01-09'),(10,'crmklewpz_@email.com','gcj4ha924k','Daniel Morais','1984-01-02'),(11,'defrmhzzpm@email.com','c29890xrx1','Carlos Camargo','2005-02-22'),(12,'dfpbolmuge@email.com','3o5lb4q5af','Bruno Torres','2000-01-30'),(13,'eayqurtjgt@email.com','yaxha3acw7','Tiago Ulisses','1993-04-22'),(14,'fgj_dmclfm@email.com','lbts0cn1fi','Neto Sophiate','1996-05-17'),(15,'fjweu_kzra@email.com','3a_yue_7kh','Isaias Buscarino','2001-01-07'),(16,'fquflgxyoz@email.com','w05am8mckm','Guilherme de Sousa','2001-05-18'),(17,'gbtgpnxmph@email.com','jbwonb7p4w','Josiane Dutra','1950-01-20'),(18,'ghxyglmcyf@email.com','wpjuxj8bha','Rita Pontes','1999-09-02'),(19,'gmflyhjhzw@email.com','sp1ssp2746','Denilson Barbosa da Silva','2000-01-08'),(20,'gtu_ssbyhs@email.com','ipkwktgkz4','Paulo Narley','1997-03-17'),(21,'hbilhpzmae@email.com','a@9rbr2iut','Márcio Mello','2011-11-20'),(22,'hjztczcdrp@email.com','g7pwap04yo','Elvis Schwarz','2011-05-07'),(23,'ibtoiwsgsq@email.com','scx@nbby3r','Rafael Guimma','1968-04-11'),(24,'iiholywsbe@email.com','1d0ggt00cl','Nara Matos','1978-03-17'),(25,'imbwhrmkkf@email.com','p50kgf3dk1','Joade Assis','1930-12-01'),(26,'jspznfbtos@email.com','6yhi4oit@h','Valter Vilmerson','1985-10-12'),(27,'lnlryodgls@email.com','fojqlsqn2j','Jucinei Teixeira','1977-11-22'),(28,'lsujlsazxx@email.com','1hwkhowi48','Emerson Gabriel','1920-12-30'),(29,'mgn_cwgzrb@email.com','htf4gcoqc6','Neriton Dias','2009-10-30'),(30,'mpuxllaqpe@email.com','8nmig0@uq2','Yuji Homa','1996-12-25'),(31,'mxydt_uzjg@email.com','2r5@qzuhy2','Luiz Paulo','1984-11-01'),(32,'nrwipblchg@email.com','aexjl3m0iy','André Vitebo','1970-07-01'),(33,'nufsheffcm@email.com','7ii1uk57cc','Silvio Ricardo','2012-03-12'),(34,'nwunwbdldy@email.com','2exmhq3y03','Andreia Delfino','1975-07-01'),(35,'ogknfxhsec@email.com','zghr3icx3y','Letícia Neves','1999-12-03'),(36,'ozxwrkcxp_@email.com','khqw5t829_','Danilo Araujo','1975-12-10'),(37,'p_l_kps_ew@email.com','urf6nu_u3k','Ruan Valente','1998-03-19'),(38,'pysziqmjfe@email.com','2fb_9pen61','Daniele Moledo','2006-08-11'),(39,'qhijtuduja@email.com','lj6d9rlfxa','Allan Silva','1993-11-11'),(40,'qkznlmaayw@email.com','z9lt@o2d9p','Lucas Damasceno','1930-11-02'),(41,'qlueesgcux@email.com','dey7j5i0zw','Dayana Dias','1993-05-30'),(42,'qsgifkknxz@email.com','tu1yl@m9iy','Carlisson Rosa','2010-08-01'),(43,'r_yicieibj@email.com','hbo9it453i','Ana Carolina Hernandes','1970-10-11'),(44,'raqzmsdohi@email.com','3j5zzhmy@0','Talita Nascimento','1999-12-30'),(45,'rljktfnpqe@email.com','i0feaki8j6','Bruna Teles','1980-11-07'),(46,'rpahhdpeak@email.com','@cq894q7px','Silvana Albuquerque','1999-05-22'),(47,'rpclq_kxdl@email.com','xg32f79ch2','Jackson Telles','1999-01-23'),(48,'shjcdoatyi@email.com','yb7mrlwmlf','Herisson Silva','1965-10-10'),(49,'sqxtasfax_@email.com','9@khhfuiqa','Anderson Rafael','1989-12-01'),(50,'tgknijphhq@email.com','hjlxa_mh84','Bruna Santos','1991-12-01'),(51,'tidmxsoloi@email.com','n8d@0d@7fy','Nailton Mauricio','1992-04-25'),(52,'uesaegxigf@email.com','5psdysp2k@','Jarismar Andrade','2000-06-23'),(53,'uflhliepyh@email.com','lirln7ll5m','Ana Carolina Mendes','2000-12-15'),(54,'ujxhzjffig@email.com','anugd8r3gm','Leila Martins','1975-04-22'),(55,'uqocibbmfk@email.com','l_t4ag2bql','Diogo Padilha','2000-03-03'),(56,'uzxejwdydj@email.com','f5hpym6r_j','Rosana Kunz','1935-01-16'),(57,'wwhrduxzqj@email.com','se2fwwme5b','Bruno Miltersteiner','1986-02-19'),(58,'xmsfibgrlm@email.com','256gjcxf7y','Paulo Batista','1999-03-15'),(59,'ygukddbbxa@email.com','3t9e6kr43_','Monique Precivalli','2013-12-30'),(60,'zioynzhuwy@email.com','orueg62kjo','Marcos Dissotti','2010-01-01'),(61,'zruzr_ookf@email.com','1p47t53dg5','Robson Rodolpho','2000-08-08');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -172,4 +199,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-14  3:36:32
+-- Dump completed on 2023-05-17  3:16:59
