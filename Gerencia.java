@@ -1,3 +1,8 @@
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="gerenciar")
 public class Gerencia{
 	private float hora;
 	private String data;

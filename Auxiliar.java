@@ -1,3 +1,7 @@
+
+import javax.persistence.Entity;
+
+@Entity
 public class Auxiliar extends Adm {
 
 	

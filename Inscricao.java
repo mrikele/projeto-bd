@@ -1,5 +1,9 @@
+import javax.persistence.Entity;
 import java.util.List;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="inscricao")
 public class Inscricao{
 	private int codigoCurso;
 	private int codigoAluno;

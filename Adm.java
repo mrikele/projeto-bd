@@ -1,5 +1,9 @@
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="adm")
 public abstract class Adm {
 	private int id;
 	private int login;
