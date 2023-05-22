@@ -4,6 +4,8 @@ public class Curso {
     private int carga;
     private Categoria categoria;
     private Adm adm;
+    private List<Inscricao> inscricao;
+
 
     public Curso(){
         //Para o hibernate

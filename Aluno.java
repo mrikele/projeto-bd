@@ -4,6 +4,7 @@ public class Aluno {
     private String senha;
     private String nome;
     private String nasc;
+    private List<Inscricao> inscricao;
 
     public Aluno(){
         //Para o hibernate
