@@ -3,6 +3,9 @@ public class Inscricao{
 	private int codigoAluno;
     private String dataInscricao;
     private int idInscricao;
+    private Aluno aluno;
+    private List<Curso> cursos;
+
 	
 	
 	public Inscricao() {

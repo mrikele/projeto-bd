@@ -5,6 +5,8 @@ public class Curso {
     private Categoria categoria;
     private Adm adm;
     private List<Inscricao> inscricao;
+	private List<Gerencia> gerencia;
+
 
 
     public Curso(){

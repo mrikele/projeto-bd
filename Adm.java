@@ -3,6 +3,7 @@ public abstract class Adm {
 	private int login;
 	private String senha;
 	private String nome;
+	private List<Gerencia> gerencia;
 
     public Adm() {
 		//Para o Hibernate
