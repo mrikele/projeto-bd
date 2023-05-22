@@ -1,3 +1,5 @@
+import java.util.List;
+
 public abstract class Adm {
 	private int id;
 	private int login;

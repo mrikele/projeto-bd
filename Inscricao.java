@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Inscricao{
 	private int codigoCurso;
 	private int codigoAluno;

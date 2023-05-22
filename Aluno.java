@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Aluno {
     private int matricula;
     private int login;
