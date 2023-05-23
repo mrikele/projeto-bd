@@ -16,6 +16,7 @@ public class Curso {
     private int carga;
     @ManyToOne
     @Id 
+    @JoinColumn(name="id_categoriafk", referencedColumnName="codigo")
     private Categoria categoria;
     private Adm adm;
     private List<Inscricao> inscricao;
