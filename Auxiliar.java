@@ -2,6 +2,7 @@
 import javax.persistence.Entity;
 
 @Entity
+@PrimaryKeyJoinColumn(name="id_admfk")
 public class Auxiliar extends Adm {
 
 	

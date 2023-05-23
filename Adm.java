@@ -7,6 +7,7 @@ import javax.persistence.Column;
 
 @Entity
 @Table(name="adm")
+@Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Adm {
 	@Id
 	private int id;
