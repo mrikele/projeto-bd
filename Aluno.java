@@ -1,11 +1,14 @@
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Column;
 
 @Entity
 @Table(name="aluno")
 public class Aluno {
+    @Column(nullable = false)
     private int matricula;
+    @Column(nullable = false)
     private int login;
     private String senha;
     private String nome;

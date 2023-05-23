@@ -1,13 +1,21 @@
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persitence.ManyToOne;
+import javax.persistence.Id;
+import javax.persistence.Column;
 
 @Entity
 @Table(name="curso")
 public class Curso {
+    @Id 
+    private int codCurso;
+    @Column(nullable = false)
     private String nome;
     private String descricao;
     private int carga;
+    @ManyToOne
+    @Id 
     private Categoria categoria;
     private Adm adm;
     private List<Inscricao> inscricao;

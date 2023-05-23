@@ -1,11 +1,19 @@
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.OneToMany;
+import javax.persistence.Column;
+
 
 @Entity
 @Table(name="categoria")
 public class Categoria{
+	@Column(nullable = false)
 	private int codigo;
+	@Column(nullable = false)
 	private String nome;
+	@OneToMany(mappedBy="categoria")
+	private List<Curso> cursos;
 	
 	
 	public Categoria() {

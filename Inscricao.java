@@ -1,13 +1,19 @@
 import javax.persistence.Entity;
+
+import java.io.Serializable;
+import java.sql.Date;
 import java.util.List;
 import javax.persistence.Table;
+import javax.persistence.Id;
 
 @Entity
 @Table(name="inscricao")
-public class Inscricao{
+public class Inscricao implements Serializable{
+	@Id
 	private int codigoCurso;
+	@Id
 	private int codigoAluno;
-    private String dataInscricao;
+    private Date dataInscricao;
     private int idInscricao;
     private Aluno aluno;
     private List<Curso> cursos;
@@ -18,7 +24,7 @@ public class Inscricao{
 		//Para o Hibernate
 	}
 	
-	public Inscricao(int codigoCurso, int codigoAluno, String dataInscricao, int idInscricao) {
+	public Inscricao(int codigoCurso, int codigoAluno, Date dataInscricao, int idInscricao) {
 		this.codigoCurso = codigoCurso;
 		this.codigoAluno = codigoAluno;
         this.dataInscricao = dataInscricao;
@@ -41,11 +47,11 @@ public class Inscricao{
 	public void setCodigoAluno(int codigoAluno) {
 		this.codigoAluno = codigoAluno;
 	}
-    public String getDataInscricao() {
+    public Date getDataInscricao() {
 		return dataInscricao;
 	}
 
-	public void setDataInscricao(String dataInscricao) {
+	public void setDataInscricao(Date dataInscricao) {
 		this.dataInscricao = dataInscricao;
 	}
     public int getIdInscricao() {

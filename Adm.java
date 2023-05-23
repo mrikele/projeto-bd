@@ -1,15 +1,20 @@
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.Column;
 
 @Entity
 @Table(name="adm")
 public abstract class Adm {
+	@Id
 	private int id;
+	@Column(nullable = false)
 	private int login;
 	private String senha;
 	private String nome;
 	private List<Gerencia> gerencia;
+	private Adm tipoHeranca;
 
     public Adm() {
 		//Para o Hibernate
