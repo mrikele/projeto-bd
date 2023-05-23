@@ -13,6 +13,7 @@ public class Aluno {
     private String senha;
     private String nome;
     private String nasc;
+    @ManyToMany(mappedBy="inscricao")
     private List<Inscricao> inscricao;
 
     public Aluno(){

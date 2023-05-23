@@ -19,7 +19,17 @@ public class Curso {
     @JoinColumn(name="id_categoriafk", referencedColumnName="codigo")
     private Categoria categoria;
     private Adm adm;
+    @ManyToMany
+    @JoinTable(name="inscricao", joinColumns={
+        @JoinColumn(name="id_curso", referencedColumnName = "codCurso")}, inverseJoinColumns = {
+            @JoinColumn(name="id_aluno", referencedColumnName="matricula")
+        })
     private List<Inscricao> inscricao;
+    @ManyToMany
+    @JoinTable(name="gerenciar", joinColumns={
+        @JoinColumn(name="id_admfk", referencedColumnName = "id")}, inverseJoinColumns = {
+            @JoinColumn(name="id_adm", referencedColumnName="id")
+        })
 	private List<Gerencia> gerencia;
 
 
