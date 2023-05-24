@@ -1,6 +1,6 @@
 # Projeto Banco de Dados
 ## 📝 Descrição: 
-Projeto para a disciplina de Banco de dados que simula o funcionamento de uma plataforma de cursos de várias categorias. 
+Projeto para a disciplina de Banco de dados que simula o funcionamento de uma plataforma de cursos de várias categorias, com Java e Hibernate.
 
 ## 💻 Como acessar:
 1️⃣. Tenha uma IDE (Sugestão: Vs code);
