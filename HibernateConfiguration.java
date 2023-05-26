@@ -12,9 +12,9 @@ public class HibernateConfiguration {
 		cfg = new Configuration();
 		cfg.setProperty("hibernate.dialect", "org.hibernate.dialect.HSQLDialect");
 		cfg.setProperty("hibernate.connection.driver_class", "org.hsqldb.jdbcDriver");
-		cfg.setProperty("hibernate.connection.url", "jdbc:hsqldb: -endereço- ;hsqldb.lock_file=false;shutdown=true;hsqldb.write_delay=false");
+		cfg.setProperty("hibernate.connection.url", "jdbc:hsqldb:/home/mariarikele/Documentos/projeto-bd ;hsqldb.lock_file=false;shutdown=true;hsqldb.write_delay=false");
 		cfg.setProperty("hibernate.connection.username", "SA"); 
-		cfg.setProperty("hibernate.connection.password", "");
+		cfg.setProperty("hibernate.connection.password", "1603");
 
        //opcionais - INICIO
 		cfg.setProperty("hibernate.connection.characterEncoding", "utf8");
