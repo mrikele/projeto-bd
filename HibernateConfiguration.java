@@ -31,18 +31,17 @@ public class HibernateConfiguration {
 		cfg.addAnnotatedClass(Curso.class);
 		cfg.addAnnotatedClass(Gerencia.class);
 		cfg.addAnnotatedClass(Inscricao.class);
-        cfg.addAnnotatedClass(Professor.class);
+        	cfg.addAnnotatedClass(Professor.class);
 		//Classes persistentes - fim
 		
-	    ServiceRegistry serviceRegistry = 
-      new StandardServiceRegistryBuilder().applySettings(this.cfg.getProperties()).build();
+	    ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(this.cfg.getProperties()).build();
 	    factory = cfg.buildSessionFactory(serviceRegistry);
 	}
 	
 	
 	public Session getSession() {
-        //Retorna a sessão aberta
-    	return this.factory.openSession();
+         //Retorna a sessão aberta
+    	 return this.factory.openSession();
     }
     
     public Configuration getConfiguration() {
